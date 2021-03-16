@@ -7,7 +7,7 @@
 # function to localize paths
 devtools::source_gist("32e9aa2a971c6d2682ea8d6af5eb5cde")
 # prepare session
-source("src/00-perp-session.R" %>% lp)
+source(lp("src/00-perp-session.R"))
 
 
 # hmd life tables and deaths  ----------------------------------------------
@@ -38,3 +38,12 @@ lt1x1 <- bind_rows(
 )
 
 save(lt1x1, file = "dat/lt1x1.rda" %>% lp, compress = "xz")
+
+
+# World Mortality Dataset -------------------------------------------------
+# https://github.com/akarlinsky/world_mortality
+# UPD  2021-03-15 ------------------------------
+wmd <- read_csv("https://raw.githubusercontent.com/akarlinsky/world_mortality/main/world_mortality.csv")
+
+save(wmd, file = "dat/wmd-210315.rda" %>% lp, compress = "xz")
+
