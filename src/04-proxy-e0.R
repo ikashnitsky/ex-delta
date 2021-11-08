@@ -13,6 +13,8 @@ source("src/00-perp-session.R" %>% lp)
 source("src/03-fun-proxy-e0.R" %>% lp)
 
 
+load("out/hmd_0.rda" %>% lp)
+
 # crossing of the countries and years
 coo <- crossing(xcountry = hmd_0$country %>% unique(), xyear = 1990:2019)
 

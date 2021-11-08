@@ -17,7 +17,7 @@ load("out/proxy-1990-2019-20y-both.rda" %>% lp)
 # plot model fit
 df_e0 %>%
     ggplot(aes(year, model_r_squared))+
-    geom_hline(yintercept = .9, color = 5, size = .1)+
+    geom_hline(yintercept = .9, color = 5, size = .25)+
     geom_line(lineend = "round")+
     facet_wrap(~country, ncol = 10)+
     scale_x_continuous(breaks = c(1990, 2000, 2010),
