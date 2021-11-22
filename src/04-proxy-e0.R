@@ -4,6 +4,8 @@
 # Ilya Kashnitsky, ilya.kashnitsky@gmail.com
 #===============================================================================
 
+library(tidyverse)
+
 # function to localize paths
 devtools::source_gist("32e9aa2a971c6d2682ea8d6af5eb5cde")
 # prepare session
@@ -29,6 +31,24 @@ df_e0 <- pmap_df(
 save(df_e0, file = "out/proxy-1990-2019-20y-both.rda" %>% lp)
 
 
+# estimate e0
+df_e0 <- pmap_df(
+    .l = list(xcountry = coo$xcountry, xyear = coo$xyear),
+    .f = e0_proxy,
+    df = hmd_0, xsex = "m", n_years = 20
+)
+
+save(df_e0, file = "out/proxy-1990-2019-20y-male.rda" %>% lp)
+
+
+# estimate e0
+df_e0 <- pmap_df(
+    .l = list(xcountry = coo$xcountry, xyear = coo$xyear),
+    .f = e0_proxy,
+    df = hmd_0, xsex = "f", n_years = 20
+)
+
+save(df_e0, file = "out/proxy-1990-2019-20y-female.rda" %>% lp)
 
 # same estimates for age 30 -----------------------------------------------
 
