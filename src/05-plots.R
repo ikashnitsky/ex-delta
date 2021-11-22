@@ -4,15 +4,16 @@
 # Ilya Kashnitsky, ilya.kashnitsky@gmail.com
 #===============================================================================
 
+library(tidyverse)
+
 # function to localize paths
 devtools::source_gist("32e9aa2a971c6d2682ea8d6af5eb5cde")
 # prepare session
 source("src/00-perp-session.R" %>% lp)
 
-
 # age 0 ------------------------------------------------------------------
 
-load("out/proxy-1990-2019-20y-both.rda" %>% lp)
+load("out/proxy-1990-2019-20y-male.rda" %>% lp)
 
 # plot model fit
 df_e0 %>%
